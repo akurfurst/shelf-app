@@ -1,8 +1,9 @@
-export default function Footer(){
-    return(
+
+export default function Footer() {
+    return (
         <footer>
             <p>&copy; 2026</p>
-            <p>Author: Adam Kurfurst</p>
+            <p>Author: Josh Archer</p>
         </footer>
     )
 }
