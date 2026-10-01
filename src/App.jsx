@@ -46,36 +46,28 @@ const BOOKS = [
   },
 ];
 
+const booksReading = BOOKS.length === 0 ? <p>No books found</p> : <p>We got books</p>
+
+let booksWaiting;
+if(BOOKS.length === 0) {
+  booksWaiting = <p>No books to read yet</p>
+}else{
+  booksWaiting = <p>I've got books</p>
+}
+
+const bookCards = BOOKS.map(book => <BookCard title={book.title} author={book.author} pages={book.pages} rating={book.rating}/>)
+
 export default function App() {
     return (
         <div className="app">
             <Header />
-
+              
             <Panel title="Currently reading">
-                <BookCard 
-                    title="To Kill A Mockingbird"
-                    author="Harper Lee"
-                    pages={323}
-                />
-                <BookCard
-                    title="The Hunger Games"
-                    author="Suzanne Collins"
-                    rating="5"
-                    books={ ['Hunger Games', 'Mockingjay', 'Catching Fire'] }
-                />
+                {bookCards}
             </Panel>
 
             <Panel title="Want to read">
-                <BookCard
-                    title="Harry Potter"
-                    author="J.K. Rowling"
-                    rating="5"
-                />
-                <BookCard
-                    title="Pride and Prejudice"
-                    author="Jane Austen"
-                    rating="4"
-                />
+                {booksWaiting}
             </Panel>
 
             <Footer></Footer>
